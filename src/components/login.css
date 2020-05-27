@@ -1,0 +1,24 @@
+.main{
+
+   background-color: #e9ecef ;
+   align-items: center;
+   height: 100%;
+  width: 100%;
+/* border-style: solid;
+border-width: thin; */
+/* box-shadow: inherit; */
+  /* text-align: center; */
+}
+
+.block{
+    padding:10px;
+    margin-top: 10px;
+    
+    
+}
+
+.myrow{
+    margin-bottom: 10px ;
+    margin-top: 10px;
+    
+}
