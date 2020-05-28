@@ -1,7 +1,4 @@
 import React from 'react';
-
-import './App.css';
-
 import {store,persistor} from './store/StoreConfig'
 import {Provider} from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'

@@ -20,9 +20,13 @@ const Login=(props)=>{
             console.log(user.data);
             dispatch(loggingIn(user.data))
             history.push('/me')  
-        }catch(e){
-            // console.log(e);
-            setError("login");
+        }catch(error){
+            console.log(error.response)
+            if (!error.response) {
+                setError("login","notmatch","server error");
+            } else {
+                setError("login","invalid auth","invalid regno or password");
+            }
             setValue('password','')
         }
 
@@ -59,7 +63,7 @@ const Login=(props)=>{
                             <Button  variant="primary" type="submit" name="submit">Login</Button>
                             </Row>
                             <Row className="text-danger" style={{paddingTop:"10px",justifyContent:"center"}}>
-                            {errors.login && <p> <ExclamationTriangleFill/> invalid regno or password </p>}
+                            {errors.login && <p> <ExclamationTriangleFill/> {errors.login.message} </p>}
                             </Row>   
                         </Form>
                         

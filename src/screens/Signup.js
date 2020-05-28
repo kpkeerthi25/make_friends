@@ -1,16 +1,23 @@
 import React, { Fragment } from 'react'
-import {Form,Button,Container,Row,Col} from 'react-bootstrap'
+import {Form,Button,Container,Row,Col,Nav} from 'react-bootstrap'
 import Mynavbar from '../components/Mynavbar';
 import '../components/login.css'
 import {useForm} from 'react-hook-form'
 import {ExclamationTriangleFill} from 'react-bootstrap-icons'
+import {Link} from 'react-router-dom'
 
 const Signup=(props)=>{
     const {register,errors,handleSubmit}=useForm()
     const onSubmit=(data)=>console.log(data)
     return(
         <Fragment>
-            <Mynavbar link="/" btnName="Home"/>
+            <Mynavbar >
+            <Nav className="ml-auto">
+    			<Link to='/'>
+    				<Button variant="outline-primary" >Home</Button>
+   				</Link>
+			</Nav>
+            </Mynavbar>
             <Container className="main shadow p-3 mb-5 rounded" >
                         <Form onSubmit={handleSubmit(onSubmit)} className="block" >
                             <h2>Signup Form</h2>

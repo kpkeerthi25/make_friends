@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react'
-import {Row,Col,Container} from 'react-bootstrap'
+import {Row,Col,Container,Nav,Button} from 'react-bootstrap'
 import {useSelector} from 'react-redux'
-
+import {Link} from 'react-router-dom'
 import Mynavbar from '../components/Mynavbar'
 import Login from '../components/Login'
 import HomepageJumbotron from '../components/HomepageJumbotron'
@@ -11,7 +11,14 @@ const Homepage=(props)=>{
     const isLoggedIn=useSelector(state=>state.UserRed.isAuthenticated)
     return(
         <Fragment>
-            <Mynavbar link="/signup" btnName="Sign up"/>
+            <Mynavbar >
+            <Nav className="ml-auto">
+    			<Link to='/signup'>
+    				<Button variant="outline-primary" >Sign up</Button>
+   				</Link>
+			</Nav>
+                </Mynavbar>
+
             <Container fluid>
             	<Row style={{marginTop:"20px"}}>
                 	<Col   xs={{order:1,span:12}} md={{span:8,order:0}} lg={9} style={{marginBottom:"10px"}}>

@@ -19,11 +19,7 @@ const Mynavbar=(props)=>{
     				</Navbar.Brand>
 				</Link>
     		</Nav>
-			<Nav className="ml-auto">
-    			<Link to={props.link}>
-    				<Button variant="outline-primary">{props.btnName}</Button>
-   				</Link>
-			</Nav>
+			{props.children}
    		</Navbar>
     )
 }

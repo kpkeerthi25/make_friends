@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
+  useHistory
   
 } from "react-router-dom";
 import {useSelector} from 'react-redux'
@@ -14,8 +15,9 @@ import UserPage from '../screens/Userpage';
 
 
 const MyRouter=(props)=>{
-    
+    const history=useHistory();
     const isLoggedIn=useSelector(state=>state.UserRed.isAuthenticated)
+    
 
     const PrivateRoute=({children,...rest})=>(
             <Route {...rest} render={()=>(
