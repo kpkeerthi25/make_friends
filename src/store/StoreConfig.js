@@ -4,7 +4,7 @@ import storage from 'redux-persist/lib/storage'
 import thunk from 'redux-thunk'
 import hardSet from 'redux-persist/lib/stateReconciler/hardSet'
 import { composeWithDevTools } from 'redux-devtools-extension';
-import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2'
+import crossBrowserListener from './reduxpersist-listener'
 
 
 import UserReducer from './reducer/UserReducer'
@@ -17,7 +17,7 @@ const rootReducer=combineReducers({
 const persistConfig = {
     key: 'root',
     storage,
-    stateReconciler: autoMergeLevel2,
+    stateReconciler: hardSet,
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -25,4 +25,5 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 
     export const store = createStore(persistedReducer,composeWithDevTools(applyMiddleware(thunk)))
     export const persistor = persistStore(store)
+    window.addEventListener('storage', crossBrowserListener(store, persistConfig));
     

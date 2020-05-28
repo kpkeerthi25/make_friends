@@ -1,4 +1,4 @@
-import axiox from 'axios'
+import axios from 'axios'
 
 export const login='LOGIN'
 export const logout='LOGOUT'
@@ -35,7 +35,7 @@ const settingRooms=(room)=>{
 export const initRooms=()=>{
     return async(dispatch)=>{
         try{
-            const rooms=await axiox.post('http://127.0.0.1:3001/me/myrooms')
+            const rooms=await axios.post('http://127.0.0.1:3001/me/myrooms')
             dispatch(settingRooms(rooms))
 
         }catch(e){
@@ -47,11 +47,12 @@ export const initRooms=()=>{
 export const initLogout=()=>{
     return async(dispatch)=>{
         try{
-            await axiox.post('http://127.0.0.1:3001/me/logout')
+            await axios.post('http://127.0.0.1:3001/me/logout')
+            delete axios.defaults.headers.common['Authorization'];
             dispatch(loggingOut())
 
         }catch(e){
-            console.log(e)
+            console.log(e.response.data,'hello')
         }
     }
 }

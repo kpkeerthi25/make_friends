@@ -13,12 +13,10 @@ const UserPage=(props)=>{
     const history=useHistory()
     const dispatch=useDispatch()
     useEffect(()=>{
-        axios.interceptors.request.use((config)=>{
-            if(!token)
-            return config;
-            config.headers.authorization='Bearer '+token;
-            return config;
-        })
+        console.log(token)
+        
+            
+        axios.defaults.headers.common['Authorization']='Bearer ' + token
     },[token])
 
         // if(error)

@@ -15,7 +15,6 @@ const UserReducer=(store=initialState,action)=>{
     {
         case login:{
             const {user,token}=action.data;
-            
             return {...store,user:user,token:token,isAuthenticated:true}
         }
         case logout:{
